@@ -64,7 +64,7 @@
       }
 
       function countContributors(repo) {
-      	var uri = "https://api.github.com/repos/sipcapture/"+repo.name"/contributors?callback=?";
+      	var uri = "https://api.github.com/repos/sipcapture/"+repo.name+"/contributors?callback=?";
       	$.getJSON(uri, function (result) {
           if (result.data && result.data.length > 0) {
             var count = result.data.length;
