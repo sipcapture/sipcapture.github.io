@@ -58,8 +58,18 @@
         var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
         $link.append($("<h2>").text(repo.name));
         $link.append($("<h3>").text(repo.language));
+        $link.append($("<h3>").text(countContributors(repo)));
         $link.append($("<p>").text(repoDescription(repo)));
         $item.appendTo("#repos");
+      }
+
+      function countContributors(repo) {
+      	var uri = "https://api.github.com/repos/sipcapture/"+repo.name"/contributors?callback=?";
+      	$.getJSON(uri, function (result) {
+          if (result.data && result.data.length > 0) {
+            var count = result.data.length;
+            return count+" contributors";
+          }
       }
 
       function addRepos(repos, page) {
