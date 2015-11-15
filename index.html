@@ -68,9 +68,9 @@
       	$.getJSON(uri, function (result) {
           if (result.data && result.data.length > 0) {
             console.log(result.data, result.data.length);
-            var output = result.data.length+" contributors";
-            console.log(output);
-            return output;
+            var contrib = result.data.length+" contributors";
+            console.log(contrib);
+            return contrib;
           }
       	});
       }
