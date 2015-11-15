@@ -67,9 +67,10 @@
       	var uri = "https://api.github.com/repos/sipcapture/"+repo.name+"/contributors?callback=?";
       	$.getJSON(uri, function (result) {
           if (result.data && result.data.length > 0) {
-            console.log(result.data);
-            var count = result.data.length;
-            return count+" contributors";
+            console.log(result.data, result.data.length);
+            var output = result.data.length+" contributors";
+            console.log(output);
+            return output;
           }
       	});
       }
